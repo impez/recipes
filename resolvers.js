@@ -1,6 +1,9 @@
 exports.resolvers = {
   Query: {
-    getAllRecipes: () => {},
+    getAllRecipes: async (root, args, ctx) => {
+      const { Recipe } = ctx;
+      return await Recipe.find();
+    },
   },
 
   Mutation: {
