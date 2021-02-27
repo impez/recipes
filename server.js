@@ -28,10 +28,11 @@ mongoose
 
 const app = express();
 
-app.use("/graphiql", graphiqlExpress({ endpoint: "graphql" }));
+app.use("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
 
 app.use(
   "/graphql",
+  bodyParser.json(),
   graphqlExpress({
     schema,
     context: {
